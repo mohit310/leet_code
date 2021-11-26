@@ -1,4 +1,5 @@
 use std::cmp::max;
+use std::collections::HashMap;
 
 fn main() {
     let longest = length_of_longest_substring("abcabcbb".to_string());
@@ -13,19 +14,15 @@ fn main() {
 
 pub fn length_of_longest_substring(s: String) -> i32 {
     let mut res: i32 = 0;
-    let mut v = vec!(0; 256);
+    let mut m: HashMap<char, i32> = HashMap::new();
     let chars: Vec<char> = s.chars().collect();
-    let (mut left, mut right) = (0, 0);
-    while right < chars.len() {
-        let c_ascii = chars[right as usize] as u8;
-        v[c_ascii as usize] += 1;
-        while v[c_ascii as usize] > 1 {
-            let l_ascii = chars[left as usize] as u8;
-            v[l_ascii as usize] -= 1;
-            left += 1;
+    let mut i = 0;
+    for j in 0..chars.len() {
+        if m.contains_key(&chars[j]) {
+            i = max(*m.get(&chars[j]).unwrap(), i);
         }
-        res = max(res, (right - left + 1) as i32);
-        right += 1;
+        res = max(res, j as i32 - i + 1);
+        m.insert(chars[j], (j + 1) as i32);
     }
     res
 }
