@@ -1,12 +1,19 @@
 use std::collections::HashMap;
 
-#[test]
-fn test_roman_to_int() {
+fn main() {
     assert_eq!(roman_to_int("MMCMLXXXIX".to_string()), 2989);
 }
 
 fn roman_to_int(s: String) -> i32 {
-    let roman_map: HashMap<char, i32> = HashMap::from([('M', 1000), ('D', 500), ('C', 100), ('L', 50), ('X', 10), ('V', 5), ('I', 1)]);
+    let roman_map: HashMap<char, i32> = HashMap::from([
+        ('M', 1000),
+        ('D', 500),
+        ('C', 100),
+        ('L', 50),
+        ('X', 10),
+        ('V', 5),
+        ('I', 1),
+    ]);
     let mut total = 0;
     let chars: Vec<char> = s.chars().collect();
     let mut i: i32 = 0;

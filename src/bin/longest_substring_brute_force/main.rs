@@ -26,7 +26,7 @@ pub fn length_of_longest_substring(s: String) -> i32 {
 }
 
 fn non_repeat(s: &Vec<char>, start: i32, end: i32) -> bool {
-    let mut v = vec!(0; 256);
+    let mut v = vec![0; 256];
     for k in start..end + 1 {
         let c_ascii = s[k as usize] as u8;
         v[c_ascii as usize] += 1;

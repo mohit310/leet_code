@@ -13,7 +13,7 @@ fn main() {
 
 pub fn length_of_longest_substring(s: String) -> i32 {
     let mut res: i32 = 0;
-    let mut v = vec!(0; 256);
+    let mut v = vec![0; 256];
     let chars: Vec<char> = s.chars().collect();
     let (mut left, mut right) = (0, 0);
     while right < chars.len() {
