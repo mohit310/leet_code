@@ -16,16 +16,15 @@ pub fn length_of_longest_substring(s: String) -> i32 {
     let chars: Vec<char> = s.chars().collect();
     for i in 0..chars.len() {
         for j in i..chars.len() {
-            if non_repeat(&chars, i as i32, j as i32) {
-                res = max(res, (j - i + 1) as i32);
+            if non_repeat(&chars, i, j) {
+                res = max(res, i32::try_from(j - i + 1).unwrap());
             }
         }
-        //println!("{}:{}", i, c);
     }
     res
 }
 
-fn non_repeat(s: &Vec<char>, start: i32, end: i32) -> bool {
+fn non_repeat(s: &Vec<char>, start: usize, end: usize) -> bool {
     let mut v = vec![0; 256];
     for k in start..end + 1 {
         let c_ascii = s[k as usize] as u8;
