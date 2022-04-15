@@ -6,3 +6,18 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+[[bin]]
+name = "longest_substring_brute_force"
+bench = false
+path = "src/bin/longest_substring_brute_force/main.rs"
+
+[[bin]]
+name = "longest_substring_sliding_window"
+bench = false
+path = "src/bin/longest_substring_sliding_window/main.rs"
+
+[[bin]]
+name = "longest_substring_sliding_window_optimized"
+bench = false
+path = "src/bin/longest_substring_sliding_window_optimized/main.rs"

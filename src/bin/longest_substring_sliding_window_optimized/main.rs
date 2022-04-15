@@ -3,18 +3,18 @@ use std::collections::HashMap;
 
 fn main() {
     let longest = length_of_longest_substring("abcabcbb".to_string());
-    println!("{}", longest);
+    assert_eq!(longest, 3);
     let longest = length_of_longest_substring("bbbbb".to_string());
-    println!("{}", longest);
+    assert_eq!(longest, 1);
     let longest = length_of_longest_substring("pwwkew".to_string());
-    println!("{}", longest);
+    assert_eq!(longest, 3);
     let longest = length_of_longest_substring("".to_string());
-    println!("{}", longest);
+    assert_eq!(longest, 0);
 }
 
 pub fn length_of_longest_substring(s: String) -> i32 {
     let mut res: i32 = 0;
-    let mut m: HashMap<char, i32> = HashMap::new();
+    let mut m = HashMap::<char, i32>::new();
     let chars: Vec<char> = s.chars().collect();
     let mut i = 0;
     for j in 0..chars.len() {

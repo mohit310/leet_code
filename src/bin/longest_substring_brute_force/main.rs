@@ -2,13 +2,13 @@ use std::cmp::max;
 
 fn main() {
     let longest = length_of_longest_substring("abcabcbb".to_string());
-    println!("{}", longest);
+    assert_eq!(longest, 3i32);
     let longest = length_of_longest_substring("bbbbb".to_string());
-    println!("{}", longest);
+    assert_eq!(longest, 1i32);
     let longest = length_of_longest_substring("pwwkew".to_string());
-    println!("{}", longest);
+    assert_eq!(longest, 3i32);
     let longest = length_of_longest_substring("".to_string());
-    println!("{}", longest);
+    assert_eq!(longest, 0);
 }
 
 pub fn length_of_longest_substring(s: String) -> i32 {
